@@ -7,6 +7,9 @@ pygame.display.set_caption('Planet simulation')
 white = (255,255,255)
 
 class planet:
+    au = 149.6e6 * 1000
+    g = 6.67428e-11
+    scale = 250/au # 1au == 100px
     def __init__(self,x,y,radius,color,mass):
         self.x = x
         self.y = y
