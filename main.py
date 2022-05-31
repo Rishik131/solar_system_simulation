@@ -13,6 +13,10 @@ class planet:
         self.radius = radius
         self.color = color
         self.mass = mass
+        self.sun = False
+        self.dist = 0
+        self.x_vel = 0
+        self.y_vel = 0
 
 def main():
     run = True
