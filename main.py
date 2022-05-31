@@ -1,11 +1,14 @@
 import pygame
 import math
+#initialising workspace
 pygame.init()
 w,h = 800,800
 win = pygame.display.set_mode((w,h))
 pygame.display.set_caption('Planet simulation')
 white = (255,255,255)
+yellow = (255,255,0)
 
+#creating planets
 class planet:
     au = 149.6e6 * 1000
     g = 6.67428e-11
@@ -28,9 +31,17 @@ class planet:
         y = self.y * self.scale + h/2
         pygame.draw.circle(win,self.color,(x,y),self.radius)
 
+#creating procedure
 def main():
     run = True
     clock = pygame.time.Clock()
+
+    #initialising bodies
+    sun = planet(0,0,30,yellow,198892*10**30)
+    sun.sun = True
+    planets = [sun]
+
+    #running display window
     while run:
         clock.tick(60)
         win.fill(white)
