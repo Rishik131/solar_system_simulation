@@ -10,6 +10,8 @@ class planet:
     au = 149.6e6 * 1000
     g = 6.67428e-11
     scale = 250/au # 1au == 100px
+    timestep = 3600*24
+
     def __init__(self,x,y,radius,color,mass):
         self.x = x
         self.y = y
@@ -20,6 +22,11 @@ class planet:
         self.dist = 0
         self.x_vel = 0
         self.y_vel = 0
+    
+    def draw(self,win):
+        x = self.x * self.scale + w/2
+        y = self.y * self.scale + h/2
+        pygame.draw.circle(win,self.color,(x,y),self.radius)
 
 def main():
     run = True
