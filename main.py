@@ -44,10 +44,13 @@ def main():
     #running display window
     while run:
         clock.tick(60)
-        win.fill(white)
-        pygame.display.update()
+        # win.fill(white)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
+
+        for body in planets:
+            body.draw(win)
+        pygame.display.update()
     pygame.quit()
 main()
