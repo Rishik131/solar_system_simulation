@@ -41,6 +41,11 @@ class planet:
         dist = math.sqrt(dist_x**2 + dist_y**2)
         if other.sun:
             self.dist_to_sun = dist
+        force = self.g * self.mass * other.mass / dist**2
+        theta = math.atan2(dist_y,dist_x)
+        force_x = math.cos(theta) * force
+        force_y = math.sin(theta) * force
+        return force_x,force_y
 
 #creating procedure
 def main():
