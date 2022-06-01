@@ -45,8 +45,8 @@ class planet:
 
     def attraction(self, other):
         other_x,other_y = other.x, other.y
-        dist_x = other.x - self.x
-        dist_y = other.y - self.y
+        dist_x = other_x - self.x
+        dist_y = other_y - self.y
         dist = math.sqrt(dist_x**2 + dist_y**2)
         if other.sun:
             self.dist_to_sun = dist
@@ -67,6 +67,8 @@ class planet:
 
         self.x_vel = total_fx/self.mass * self.timestep
         self.y_vel = total_fy/self.mass * self.timestep
+        self.x += self.x_vel + self.timestep
+        self.y += self.y_vel + self.timestep
         self.orbit.append((self.x,self.y))
 
 #creating procedure
